@@ -19,14 +19,13 @@ export function WorkGrid() {
       <div className="mx-auto max-w-6xl px-6 md:px-10">
         <div className="mb-16 flex flex-col justify-between gap-4 md:flex-row md:items-end">
           <div>
-            <p className="text-sm text-muted">Selected work</p>
+            <p className="text-sm text-muted">Design showcase</p>
             <h2 className="mt-3 font-display text-4xl text-ink md:text-5xl">
-              Six ways we&rsquo;ve applied it.
+              Exploring modern web design.
             </h2>
           </div>
           <p className="max-w-xs text-balance text-sm text-muted">
-            Hover or tab into any piece for the brief. Every title and
-            category is readable on its own, with or without the overlay.
+            Each piece tells a story of how design shapes digital experiences. Hover to discover the narrative behind each visual.
           </p>
         </div>
 

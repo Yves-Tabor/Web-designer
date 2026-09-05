@@ -4,11 +4,11 @@ import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion'
 import { MarqueeBand } from './MarqueeBand'
 
 const MARQUEE_WORDS = [
-  'Product Design',
-  'Motion',
-  'Interaction',
-  'Editorial',
-  'Development',
+  'Modern Design',
+  'User Experience',
+  'Visual Story',
+  'Digital Craft',
+  'Web Innovation',
 ]
 
 /**
@@ -82,7 +82,7 @@ export function Hero() {
           ref={eyebrowRef}
           className="mb-6 text-sm text-muted md:text-base"
         >
-          Hello there, we&rsquo;re a two-person studio.
+          The evolution of digital experiences
         </p>
 
         <h1 className="font-display text-balance text-[15vw] leading-[0.95] tracking-tight md:text-[7.5rem]">
@@ -90,10 +90,10 @@ export function Hero() {
             ref={outlineRef}
             className="block text-transparent [-webkit-text-stroke:1.5px_#F3EEE3] md:[-webkit-text-stroke:2px_#F3EEE3]"
           >
-            Crafted
+            Web Design
           </span>
           <span ref={fillRef} className="block italic text-gold">
-            to feel alive.
+            Reimagined.
           </span>
         </h1>
 
@@ -101,8 +101,7 @@ export function Hero() {
           ref={subRef}
           className="mt-8 max-w-md text-balance text-lg text-muted"
         >
-          We design small interfaces with a great point of view: quiet in
-          structure, expressive in motion.
+          Where form meets function in the digital age. Modern interfaces that tell stories, create connections, and leave lasting impressions.
         </p>
       </div>
 

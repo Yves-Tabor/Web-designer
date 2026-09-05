@@ -21,7 +21,7 @@ export function ProjectCard({ project }: { project: Project }) {
             <span className="text-sm text-muted">{project.placeholder}</span>
           </div>
 
-          <div className="absolute inset-0 flex flex-col justify-end bg-black/70 p-6 opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-100 group-focus-within:opacity-100">
+          <div className="absolute inset-0 flex flex-col bg-black/70 p-6 opacity-0 transition-all duration-300 ease-out group-hover:opacity-100 group-focus-within:opacity-100 -translate-y-full group-hover:translate-y-0 group-focus-within:translate-y-0">
             <p className="text-balance text-ink">{project.description}</p>
             <span className="mt-4 inline-block w-fit border-b border-gold text-sm text-gold">
               View project

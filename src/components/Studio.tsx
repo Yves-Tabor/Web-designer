@@ -2,16 +2,16 @@ import { motion, useReducedMotion } from 'framer-motion'
 
 const PRINCIPLES = [
   {
-    title: 'Motion answers, it doesn\u2019t perform.',
-    body: 'Something moves because the interface changed, not because we wanted a flourish.',
+    title: 'Design with purpose, not decoration.',
+    body: 'Every element serves a function. Beauty emerges from clarity, not excess.',
   },
   {
-    title: 'Nothing important lives only in an animation.',
-    body: 'If motion were switched off tomorrow, every screen would still make sense.',
+    title: 'Users come first, always.',
+    body: 'Great design disappears. It guides without demanding attention.',
   },
   {
-    title: 'One bold move per screen.',
-    body: 'We pick the thing worth noticing, then keep everything around it quiet.',
+    title: 'Simplicity is the ultimate sophistication.',
+    body: 'The best interfaces solve complex problems with elegant solutions.',
   },
 ]
 
@@ -27,14 +27,12 @@ export function Studio() {
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: reduceMotion ? 0.2 : 0.6 }}
         >
-          <p className="text-sm text-muted">The studio</p>
+          <p className="text-sm text-muted">The philosophy</p>
           <h2 className="mt-3 font-display text-3xl text-ink md:text-4xl">
-            Two people, one point of view.
+            Design that speaks.
           </h2>
           <p className="mt-6 max-w-sm text-balance text-muted">
-            Almanac is small on purpose. Every project gets both of us, start
-            to finish, which is the only way we know to keep an interface
-            feeling considered rather than assembled.
+            Web design has evolved from static pages to living experiences. We believe in creating interfaces that communicate, connect, and inspire through thoughtful visual storytelling.
           </p>
         </motion.div>
 
