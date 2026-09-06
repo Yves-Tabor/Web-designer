@@ -1,4 +1,4 @@
-import { motion, useReducedMotion } from 'framer-motion'
+import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion'
 import { timeline, type TimelineEntry } from '../data/timeline'
 
 function PlaceholderFrame({ label, description }: { label: string; description: string }) {
@@ -18,6 +18,9 @@ function PlaceholderFrame({ label, description }: { label: string; description: 
 function TimelineRow({ entry, index }: { entry: TimelineEntry; index: number }) {
   const reduceMotion = useReducedMotion()
   const fromLeft = index % 2 === 0
+  const { scrollYProgress } = useScroll()
+  const scale = useTransform(scrollYProgress, [0, 1], [0.95, 1])
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0.7])
 
   return (
     <motion.div
@@ -25,6 +28,7 @@ function TimelineRow({ entry, index }: { entry: TimelineEntry; index: number }) 
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true, margin: '-100px' }}
       transition={{ duration: reduceMotion ? 0.2 : 0.7, ease: 'easeOut' }}
+      style={{ scale: reduceMotion ? 1 : scale, opacity: reduceMotion ? 1 : opacity }}
       className="relative pl-16 md:grid md:grid-cols-2 md:gap-16 md:pl-0"
     >
       <span className="absolute left-6 top-1.5 h-3 w-3 -translate-x-1/2 rounded-full bg-gold ring-4 ring-ground md:left-1/2" />

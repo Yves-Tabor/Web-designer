@@ -10,13 +10,13 @@ export function Hitline() {
   const reduceMotion = useReducedMotion()
 
   return (
-    <section className="border-y border-line bg-surface/40 py-28 md:py-36">
+    <section className="relative z-10 border-y border-line bg-surface/40 py-28 md:py-36">
       <div className="mx-auto max-w-3xl px-6 text-center md:px-10">
         {LINES.map((line, index) => (
           <motion.p
             key={line}
-            initial={{ opacity: 0, y: reduceMotion ? 0 : 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: reduceMotion ? 0 : 16, scale: reduceMotion ? 1 : 0.95 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true, margin: '-80px' }}
             transition={{
               duration: reduceMotion ? 0.2 : 0.6,

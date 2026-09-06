@@ -1,5 +1,6 @@
 import { useLayoutEffect, useRef } from 'react'
 import gsap from 'gsap'
+import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion'
 import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion'
 import { MarqueeBand } from './MarqueeBand'
 
@@ -25,6 +26,12 @@ export function Hero() {
   const fillRef = useRef<HTMLSpanElement>(null)
   const subRef = useRef<HTMLParagraphElement>(null)
   const marqueeRef = useRef<HTMLDivElement>(null)
+  
+  const reduceMotionFramer = useReducedMotion()
+  const { scrollY } = useScroll()
+  const y1 = useTransform(scrollY, [0, 500], [0, 150], { clamp: false })
+  const y2 = useTransform(scrollY, [0, 500], [0, 100], { clamp: false })
+  const opacity = useTransform(scrollY, [0, 300], [1, 0])
 
   useLayoutEffect(() => {
     const targets = [
@@ -75,9 +82,15 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative flex min-h-screen flex-col justify-center overflow-hidden pt-28"
+      className="sticky top-0 z-0 flex min-h-screen flex-col justify-center overflow-hidden pt-28"
     >
-      <div className="mx-auto w-full max-w-6xl px-6 md:px-10">
+      <motion.div 
+        style={{ 
+          y: reduceMotionFramer ? 0 : y1,
+          opacity: reduceMotionFramer ? 1 : opacity
+        }}
+        className="mx-auto w-full max-w-6xl px-6 md:px-10"
+      >
         <p
           ref={eyebrowRef}
           className="mb-6 text-sm text-muted md:text-base"
@@ -103,10 +116,11 @@ export function Hero() {
         >
           Where form meets function in the digital age. Modern interfaces that tell stories, create connections, and leave lasting impressions.
         </p>
-      </div>
+      </motion.div>
 
-      <div
+      <motion.div
         ref={marqueeRef}
+        style={{ y: reduceMotionFramer ? 0 : y2 }}
         className="relative mt-20 flex flex-col gap-6 md:mt-28"
       >
         <MarqueeBand words={MARQUEE_WORDS} direction="left" rotate={-2} />
@@ -116,7 +130,7 @@ export function Hero() {
           rotate={2}
           emphasizeIndex={0}
         />
-      </div>
+      </motion.div>
     </section>
   )
 }
