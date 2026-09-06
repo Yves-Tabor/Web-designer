@@ -12,7 +12,9 @@
   }
 
   body {
-    @apply bg-ground text-ink font-sans antialiased;
+    @apply text-ink font-sans antialiased;
+    background: linear-gradient(180deg, #0a2e2e 0%, #0d0c0a 100%);
+    background-color: #0d0c0a;
   }
 
   ::selection {
