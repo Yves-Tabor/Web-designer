@@ -7,9 +7,7 @@ export interface Project {
   placeholder: string
 }
 
-// Swap `placeholder` for a real image path (e.g. "/work/almanac.jpg") on
-// each entry once assets are ready -- the card component falls back to a
-// labelled frame automatically when no `image` is supplied.
+
 export const projects: Project[] = [
   {
     id: 'minimalist',

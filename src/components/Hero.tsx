@@ -12,13 +12,6 @@ const MARQUEE_WORDS = [
   'Web Innovation',
 ]
 
-/**
- * The one signature, non-user-triggered moment on the page: a single GSAP
- * timeline that reveals the headline on load, then settles the crossed
- * marquee bands into place. Every other reveal on the page is a smaller,
- * scroll-triggered Framer Motion transition -- this is the only "big" one,
- * by design.
- */
 export function Hero() {
   const reduced = usePrefersReducedMotion()
   const eyebrowRef = useRef<HTMLParagraphElement>(null)

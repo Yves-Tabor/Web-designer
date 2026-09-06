@@ -1,3 +1,5 @@
+import { useState, useEffect } from 'react'
+
 interface MarqueeBandProps {
   words: string[]
   direction?: 'left' | 'right'
@@ -5,14 +7,6 @@ interface MarqueeBandProps {
   emphasizeIndex?: number
 }
 
-/**
- * A single ticker row of the crossed marquee under the hero. Content is
- * duplicated once so the CSS translateX loop can wrap seamlessly. The
- * looping animation is pure CSS (see tailwind.config.ts), which the global
- * prefers-reduced-motion rule in index.css already freezes -- there is no
- * essential information here, it's a decorative rhythm, so freezing it is
- * enough (no separate JS branch needed).
- */
 export function MarqueeBand({
   words,
   direction = 'left',
@@ -20,6 +14,56 @@ export function MarqueeBand({
   emphasizeIndex,
 }: MarqueeBandProps) {
   const doubled = [...words, ...words]
+  const [patternIndex, setPatternIndex] = useState(0)
+  
+  // Generate multiple decoration patterns with max 4 highlights
+  const patterns = words.map((_, patternIdx) => {
+    // Generate all potential decorations first
+    const allDecorations = doubled.map((word, index) => {
+      const hash = word.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0) + index + patternIdx
+      const startPos = hash % Math.max(1, word.length - 2)
+      return { index, startPos, word, priority: hash }
+    })
+    
+    // Sort by priority and take top 4, then mark the rest as not decorated
+    const sorted = [...allDecorations].sort((a, b) => a.priority - b.priority)
+    const topIndices = new Set(sorted.slice(0, 4).map(d => d.index))
+    
+    return allDecorations.map(decoration => ({
+      shouldDecorate: topIndices.has(decoration.index) && decoration.word.length >= 4,
+      startPos: decoration.startPos,
+      word: decoration.word
+    }))
+  })
+  
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setPatternIndex((prev) => (prev + 1) % patterns.length)
+    }, 3000)
+    
+    return () => clearInterval(interval)
+  }, [patterns.length])
+  
+  const getDecoratedWord = (word: string, index: number) => {
+    const pattern = patterns[patternIndex][index]
+    
+    if (!pattern.shouldDecorate || word.length < 4) return word
+    
+    const before = word.slice(0, pattern.startPos)
+    const decorated = word.slice(pattern.startPos, pattern.startPos + 3)
+    const after = word.slice(pattern.startPos + 3)
+    
+    return (
+      <>
+        {before}
+        <span className="relative inline-block transition-all duration-1000 ease-in-out">
+          <span className="absolute -inset-1 bg-[#C89B4A] transition-opacity duration-1000 ease-in-out" />
+          <span className="relative text-[#0D0C0A] transition-colors duration-1000 ease-in-out">{decorated}</span>
+        </span>
+        {after}
+      </>
+    )
+  }
 
   return (
     <div
@@ -41,7 +85,7 @@ export function MarqueeBand({
                 : 'text-muted'
             }`}
           >
-            {word}
+            {getDecoratedWord(word, index)}
             <span className="mx-3 text-line">&middot;</span>
           </span>
         ))}

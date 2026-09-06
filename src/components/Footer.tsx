@@ -8,16 +8,16 @@ export function Footer() {
 
         <div className="mt-10 flex flex-col gap-6 border-t border-line pt-10 md:flex-row md:items-center md:justify-between">
           <a
-            href="mailto:hello@studioalmanac.example"
+            href="mailto:walvesoutis@gmail.com"
             className="font-display text-2xl italic text-gold hover:underline"
           >
-            hello@studioalmanac.example
+            Click to send a mail.
           </a>
 
           <ul className="flex gap-6 text-sm text-muted">
             <li>
-              <a href="#" className="hover:text-ink">
-                Instagram
+              <a href="https://yvestabor-website.vercel.app" className="hover:text-ink">
+                My-Website
               </a>
             </li>
             <li>
@@ -34,7 +34,7 @@ export function Footer() {
         </div>
 
         <p className="mt-16 text-sm text-muted">
-          &copy; {new Date().getFullYear()} Studio Almanac. Built quiet.
+          &copy; {new Date().getFullYear()} Yves Tabor - Web Designer. Built quiet.
         </p>
       </div>
     </footer>

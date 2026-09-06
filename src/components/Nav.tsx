@@ -12,8 +12,6 @@ export function Nav() {
   const [open, setOpen] = useState(false)
   const reduceMotion = useReducedMotion()
 
-  // Close the mobile menu on Escape, and return focus-friendly behaviour --
-  // keyboard users should never get trapped once a panel opens.
   useEffect(() => {
     if (!open) return
     const onKeyDown = (event: KeyboardEvent) => {
@@ -33,7 +31,7 @@ export function Nav() {
           href="#top"
           className="font-display text-xl italic tracking-tight text-ink"
         >
-          Studio Almanac
+          Web Designer
         </a>
 
         <ul className="hidden items-center gap-8 md:flex">
