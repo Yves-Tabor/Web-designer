@@ -1,17 +1,15 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import { timeline, type TimelineEntry } from '../data/timeline'
 
-function PlaceholderFrame({ label }: { label: string }) {
+function PlaceholderFrame({ label, description }: { label: string; description: string }) {
   return (
-    <div className="relative aspect-[4/3] w-full border border-line bg-gradient-to-br from-surface to-sage/10">
-      {/* Corner ticks -- a small nod to a contact sheet / archive plate,
-          purely decorative. */}
-      <span className="absolute left-0 top-0 h-4 w-4 border-l border-t border-gold/70" />
-      <span className="absolute right-0 top-0 h-4 w-4 border-r border-t border-gold/70" />
-      <span className="absolute bottom-0 left-0 h-4 w-4 border-b border-l border-gold/70" />
-      <span className="absolute bottom-0 right-0 h-4 w-4 border-b border-r border-gold/70" />
+    <div className="group relative aspect-[4/3] w-full overflow-hidden border border-line bg-gradient-to-br from-surface to-sage/10">
       <div className="flex h-full w-full items-center justify-center p-6 text-center">
         <span className="text-sm text-muted">{label}</span>
+      </div>
+
+      <div className="absolute inset-0 flex flex-col bg-black/70 p-6 opacity-0 transition-all duration-300 ease-out group-hover:opacity-100 -translate-y-full group-hover:translate-y-0">
+        <p className="text-balance text-ink">{description}</p>
       </div>
     </div>
   )
@@ -45,7 +43,7 @@ function TimelineRow({ entry, index }: { entry: TimelineEntry; index: number }) 
       <div
         className={`mt-6 md:mt-0 ${fromLeft ? 'md:order-2 md:pl-8' : 'md:order-1 md:pr-8'}`}
       >
-        <PlaceholderFrame label={entry.placeholder} />
+        <PlaceholderFrame label={entry.placeholder} description={entry.description} />
       </div>
     </motion.div>
   )
@@ -56,9 +54,9 @@ export function Timeline() {
     <section id="archive" className="py-28 md:py-36">
       <div className="mx-auto max-w-5xl px-6 md:px-10">
         <div className="mb-20 max-w-lg">
-          <p className="text-sm text-muted">A short history</p>
+          <p className="text-sm text-muted">The evolution</p>
           <h2 className="mt-3 font-display text-4xl text-ink md:text-5xl">
-            How we got to quiet.
+            How web design transformed.
           </h2>
         </div>
 

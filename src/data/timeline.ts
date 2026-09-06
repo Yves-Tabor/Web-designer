@@ -9,43 +9,51 @@ export interface TimelineEntry {
 
 export const timeline: TimelineEntry[] = [
   {
-    year: '2016',
-    era: 'Print & Grid',
-    title: 'Learning restraint from the page',
+    year: '1990',
+    era: 'The Beginning',
+    title: 'HTML & Static Pages',
     description:
-      'Before screens, the grid. Two years spent on editorial layouts taught us that margins carry as much meaning as the words they hold.',
-    placeholder: 'Editorial spread, 2016',
+      'The web started with simple, text-based pages. No styling, just content. The foundation was laid for what would become a global design medium.',
+    placeholder: 'Early HTML page, 1990',
+  },
+  {
+    year: '1996',
+    era: 'Visual Revolution',
+    title: 'CSS Emerges',
+    description:
+      'Cascading Style Sheets changed everything. Designers could finally separate content from presentation, opening the door to creative expression.',
+    placeholder: 'CSS-styled page, 1996',
+  },
+  {
+    year: '2005',
+    era: 'Web 2.0',
+    title: 'Interactive Experiences',
+    description:
+      'AJAX brought dynamic content without page reloads. The web became more like applications, setting the stage for modern interactivity.',
+    placeholder: 'Web 2.0 interface, 2005',
+  },
+  {
+    year: '2010',
+    era: 'Responsive Era',
+    title: 'Mobile-First Design',
+    description:
+      'Smartphones demanded flexible layouts. Responsive design became essential, forcing designers to think beyond fixed desktop dimensions.',
+    placeholder: 'Responsive layout, 2010',
   },
   {
     year: '2018',
-    era: 'Skeuomorphic Depth',
-    title: 'Interfaces that imitated the world',
+    era: 'Modern Web',
+    title: 'Component Systems',
     description:
-      'Stitched leather, brushed metal, drop shadows on everything. Overdone in hindsight, but it taught us that texture builds trust.',
-    placeholder: 'App icon study, 2018',
-  },
-  {
-    year: '2021',
-    era: 'Flat & Functional',
-    title: 'Stripping it back to function',
-    description:
-      'The pendulum swung hard. Flat colour, no ornament, everything justified by a user story. Clean, but it often forgot to feel like anything.',
-    placeholder: 'Dashboard redesign, 2021',
-  },
-  {
-    year: '2024',
-    era: 'Motion-First',
-    title: 'Letting movement carry meaning',
-    description:
-      'Once performant animation became cheap, we started designing the transition before the screen. State changes became the interface.',
-    placeholder: 'Prototype reel, 2024',
+      'Design systems and component libraries emerged. Consistency and scalability became paramount, changing how teams approach web design.',
+    placeholder: 'Design system, 2018',
   },
   {
     year: '2026',
-    era: 'Neo-Archive',
-    title: 'Where we are now',
+    era: 'The Future',
+    title: 'AI-Enhanced Design',
     description:
-      'Warm, tactile, a little cinematic. We borrow the discipline of the archive and the expressiveness of film to make small interfaces feel alive.',
-    placeholder: 'Current studio work, 2026',
+      'Artificial intelligence is transforming how we create. From generative layouts to adaptive interfaces, the boundary between design and technology continues to blur.',
+    placeholder: 'AI-powered interface, 2026',
   },
 ]
