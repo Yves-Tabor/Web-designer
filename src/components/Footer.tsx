@@ -21,7 +21,7 @@ export function Footer() {
               </a>
             </li>
             <li>
-              <a href="#" className="hover:text-ink">
+              <a href="https://www.linkedin.com/in/yves-tabor-a625b4388" className="hover:text-ink">
                 LinkedIn
               </a>
             </li>
