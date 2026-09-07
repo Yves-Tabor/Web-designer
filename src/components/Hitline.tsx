@@ -10,7 +10,7 @@ export function Hitline() {
   const reduceMotion = useReducedMotion()
 
   return (
-    <section className="relative z-10 border-y border-line bg-surface/40 py-28 md:py-36">
+    <section className="relative z-10 border-y border-line bg-surface/70 md:bg-surface/70 py-28 md:py-36">
       <div className="mx-auto max-w-3xl px-6 text-center md:px-10">
         {LINES.map((line, index) => (
           <motion.p
