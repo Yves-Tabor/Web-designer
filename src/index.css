@@ -22,15 +22,12 @@
     color: theme('colors.ground');
   }
 
-  /* Visible, deliberate keyboard focus everywhere -- never suppressed. */
   :focus-visible {
     outline: 2px solid theme('colors.gold');
     outline-offset: 3px;
     border-radius: 1px;
   }
 
-  /* Respect the OS-level motion preference as a hard override, in addition
-     to the JS-level checks each component makes for its own animation logic. */
   @media (prefers-reduced-motion: reduce) {
     html {
       scroll-behavior: auto;
@@ -52,8 +49,6 @@
   }
 }
 
-/* Fixed film-grain texture, sits above everything but never intercepts input
-   and never carries information on its own. */
 .grain-overlay {
   position: fixed;
   inset: -10%;

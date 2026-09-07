@@ -1,7 +1,6 @@
 import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion'
 import { timeline, type TimelineEntry } from '../data/timeline'
 
-// Image imports for timeline cards
 import htmlImage from './../img/html2.jpg'
 import cssImage from './../img/css.jpg'
 import web2Image from './../img/web.jpg'

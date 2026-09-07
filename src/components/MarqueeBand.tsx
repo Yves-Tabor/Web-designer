@@ -16,16 +16,13 @@ export function MarqueeBand({
   const doubled = [...words, ...words]
   const [patternIndex, setPatternIndex] = useState(0)
   
-  // Generate multiple decoration patterns with max 4 highlights
   const patterns = words.map((_, patternIdx) => {
-    // Generate all potential decorations first
     const allDecorations = doubled.map((word, index) => {
       const hash = word.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0) + index + patternIdx
       const startPos = hash % Math.max(1, word.length - 2)
       return { index, startPos, word, priority: hash }
     })
     
-    // Sort by priority and take top 4, then mark the rest as not decorated
     const sorted = [...allDecorations].sort((a, b) => a.priority - b.priority)
     const topIndices = new Set(sorted.slice(0, 4).map(d => d.index))
     

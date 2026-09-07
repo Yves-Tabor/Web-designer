@@ -37,9 +37,6 @@ export function Hero() {
     if (targets.some((t) => !t)) return
 
     if (reduced) {
-      // Skip straight to the end state -- no timeline, no clipping tricks,
-      // just the finished layout. Nothing in this section is essential
-      // information that only the animation reveals, so this is safe.
       gsap.set(targets, { clearProps: 'all' })
       return
     }
