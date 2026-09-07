@@ -68,7 +68,7 @@ export function MarqueeBand({
   return (
     <div
       aria-hidden="true"
-      className="w-[140%] overflow-hidden border-y border-line bg-surface/60 py-4"
+      className="w-[140%] overflow-hidden border-y border-line bg-surface/60 py-2"
       style={{ transform: `rotate(${rotate}deg)` }}
     >
       <div
@@ -79,7 +79,7 @@ export function MarqueeBand({
         {doubled.map((word, index) => (
           <span
             key={`${word}-${index}`}
-            className={`font-display text-2xl md:text-4xl ${
+            className={`font-display text-xl md:text-2xl ${
               index % words.length === emphasizeIndex
                 ? 'font-medium text-ink'
                 : 'text-muted'
