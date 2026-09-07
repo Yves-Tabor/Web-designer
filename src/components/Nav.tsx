@@ -28,7 +28,7 @@ export function Nav() {
         className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5 md:px-10"
       >
         <a
-          href="#top"
+          href="#"
           className="font-display text-xl italic tracking-tight text-ink"
         >
           Web Designer

@@ -1,12 +1,28 @@
 import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion'
 import { timeline, type TimelineEntry } from '../data/timeline'
 
-function PlaceholderFrame({ label, description }: { label: string; description: string }) {
+// Image imports for timeline cards
+import htmlImage from './../img/html2.jpg'
+import cssImage from './../img/css.jpg'
+import web2Image from './../img/web.jpg'
+import responsiveImage from './../img/responsive.jpg'
+import designSystemImage from './../img/design-system2.jpg'
+import aiImage from './../img/ai.jpg'
+
+function PlaceholderFrame({ label, description, imageSrc }: { label: string; description: string; imageSrc?: string }) {
   return (
     <div className="group relative aspect-[4/3] w-full overflow-hidden border border-line bg-gradient-to-br from-surface to-sage/10">
-      <div className="flex h-full w-full items-center justify-center p-6 text-center">
-        <span className="text-sm text-muted">{label}</span>
-      </div>
+      {imageSrc ? (
+        <img 
+          src={imageSrc} 
+          alt={label} 
+          className="h-full w-full object-cover"
+        />
+      ) : (
+        <div className="flex h-full w-full items-center justify-center p-6 text-center">
+          <span className="text-sm text-muted">{label}</span>
+        </div>
+      )}
 
       <div className="absolute inset-0 flex flex-col bg-black/70 p-6 opacity-0 transition-all duration-300 ease-out group-hover:opacity-100 -translate-y-full group-hover:translate-y-0">
         <p className="text-balance text-ink">{description}</p>
@@ -21,6 +37,17 @@ function TimelineRow({ entry, index }: { entry: TimelineEntry; index: number }) 
   const { scrollYProgress } = useScroll()
   const scale = useTransform(scrollYProgress, [0, 1], [0.95, 1])
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0.7])
+  
+  const imageMap: Record<string, string> = {
+    '1990': htmlImage,
+    '1996': cssImage,
+    '2005': web2Image,
+    '2010': responsiveImage,
+    '2018': designSystemImage,
+    '2026': aiImage,
+  }
+  
+  const imageSrc = imageMap[entry.year]
 
   return (
     <motion.div
@@ -47,7 +74,7 @@ function TimelineRow({ entry, index }: { entry: TimelineEntry; index: number }) 
       <div
         className={`mt-6 md:mt-0 ${fromLeft ? 'md:order-2 md:pl-8' : 'md:order-1 md:pr-8'}`}
       >
-        <PlaceholderFrame label={entry.placeholder} description={entry.description} />
+        <PlaceholderFrame label={entry.placeholder} description={entry.description} imageSrc={imageSrc} />
       </div>
     </motion.div>
   )
