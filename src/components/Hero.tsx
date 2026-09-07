@@ -72,7 +72,7 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="sticky top-0 z-0 flex min-h-screen flex-col justify-center overflow-hidden pt-28"
+      className="relative z-0 flex min-h-screen flex-col justify-center overflow-hidden pt-28 md:sticky md:top-0"
     >
       <motion.div 
         style={{ 
